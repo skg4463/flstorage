@@ -52,6 +52,18 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					RpcMethod: "UpdateParams",
 					Skip:      true, // skipped because authority gated
 				},
+				{
+					RpcMethod:      "StoreFile",
+					Use:            "store-file [tag] [original-hash] [shard-hashes]",
+					Short:          "Send a StoreFile tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "tag"}, {ProtoField: "original_hash"}, {ProtoField: "shard_hashes", Varargs: true}},
+				},
+				{
+					RpcMethod:      "RequestDataAccess",
+					Use:            "request-data-access [original-hash]",
+					Short:          "Send a request-data-access tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "original_hash"}},
+				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},
 		},

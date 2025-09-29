@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 package flstorage.fedstoraging.v1;
 
 import "amino/amino.proto";
@@ -16,6 +17,12 @@ service Msg {
   // UpdateParams defines a (governance) operation for updating the module
   // parameters. The authority defaults to the x/gov module account.
   rpc UpdateParams(MsgUpdateParams) returns (MsgUpdateParamsResponse);
+
+  // StoreFile defines the StoreFile RPC.
+  rpc StoreFile(MsgStoreFile) returns (MsgStoreFileResponse);
+
+  // RequestDataAccess defines the RequestDataAccess RPC.
+  rpc RequestDataAccess(MsgRequestDataAccess) returns (MsgRequestDataAccessResponse);
 }
 
 // MsgUpdateParams is the Msg/UpdateParams request type.
@@ -27,7 +34,7 @@ message MsgUpdateParams {
   string authority = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
 
   // params defines the module parameters to update.
-  //
+
   // NOTE: All parameters must be supplied.
   Params params = 2 [
     (gogoproto.nullable) = false,
@@ -38,3 +45,25 @@ message MsgUpdateParams {
 // MsgUpdateParamsResponse defines the response structure for executing a
 // MsgUpdateParams message.
 message MsgUpdateParamsResponse {}
+
+// MsgStoreFile defines the MsgStoreFile message.
+message MsgStoreFile {
+  option (cosmos.msg.v1.signer) = "creator";
+  string creator = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  string tag = 2;
+  string original_hash = 3;
+  repeated string shard_hashes = 4;
+}
+
+// MsgStoreFileResponse defines the MsgStoreFileResponse message.
+message MsgStoreFileResponse {}
+
+// MsgRequestDataAccess defines the MsgRequestDataAccess message.
+message MsgRequestDataAccess {
+  option (cosmos.msg.v1.signer) = "creator";
+  string creator = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  string original_hash = 2;
+}
+
+// MsgRequestDataAccessResponse defines the MsgRequestDataAccessResponse message.
+message MsgRequestDataAccessResponse {}
