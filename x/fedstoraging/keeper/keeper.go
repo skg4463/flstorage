@@ -26,6 +26,7 @@ type Keeper struct {
 	Port collections.Item[string]
 
 	ibcKeeperFn func() *ibckeeper.Keeper
+	StoredFile  collections.Map[string, types.StoredFile]
 }
 
 func NewKeeper(
@@ -51,7 +52,7 @@ func NewKeeper(
 		ibcKeeperFn: ibcKeeperFn,
 		Port:        collections.NewItem(sb, types.PortKey, "port", collections.StringValue),
 		Params:      collections.NewItem(sb, types.ParamsKey, "params", codec.CollValue[types.Params](cdc)),
-	}
+		StoredFile:  collections.NewMap(sb, types.StoredFileKey, "storedFile", collections.StringKey, codec.CollValue[types.StoredFile](cdc))}
 
 	schema, err := sb.Build()
 	if err != nil {

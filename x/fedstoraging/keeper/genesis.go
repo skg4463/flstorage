@@ -14,6 +14,11 @@ func (k Keeper) InitGenesis(ctx context.Context, genState types.GenesisState) er
 	if err := k.Port.Set(ctx, genState.PortId); err != nil {
 		return err
 	}
+	for _, elem := range genState.StoredFileMap {
+		if err := k.StoredFile.Set(ctx, elem.OriginalHash, elem); err != nil {
+			return err
+		}
+	}
 
 	return k.Params.Set(ctx, genState.Params)
 }
@@ -29,6 +34,12 @@ func (k Keeper) ExportGenesis(ctx context.Context) (*types.GenesisState, error) 
 	}
 	genesis.PortId, err = k.Port.Get(ctx)
 	if err != nil && !errors.Is(err, collections.ErrNotFound) {
+		return nil, err
+	}
+	if err := k.StoredFile.Walk(ctx, nil, func(_ string, val types.StoredFile) (stop bool, err error) {
+		genesis.StoredFileMap = append(genesis.StoredFileMap, val)
+		return false, nil
+	}); err != nil {
 		return nil, err
 	}
 

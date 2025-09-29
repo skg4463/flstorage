@@ -4,6 +4,7 @@ package flstorage.fedstoraging.v1;
 
 import "amino/amino.proto";
 import "flstorage/fedstoraging/v1/params.proto";
+import "flstorage/fedstoraging/v1/stored_file.proto";
 import "gogoproto/gogo.proto";
 
 option go_package = "flstorage/x/fedstoraging/types";
@@ -16,4 +17,5 @@ message GenesisState {
     (amino.dont_omitempty) = true
   ];
   string port_id = 2;
+  repeated StoredFile stored_file_map = 3 [(gogoproto.nullable) = false];
 }

@@ -17,6 +17,18 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "params",
 					Short:     "Shows the parameters of the module",
 				},
+				{
+					RpcMethod: "ListStoredFile",
+					Use:       "list-stored-file",
+					Short:     "List all StoredFile",
+				},
+				{
+					RpcMethod:      "GetStoredFile",
+					Use:            "get-stored-file [id]",
+					Short:          "Gets a StoredFile",
+					Alias:          []string{"show-stored-file"},
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "original_hash"}},
+				},
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

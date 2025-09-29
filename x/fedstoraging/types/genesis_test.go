@@ -22,9 +22,22 @@ func TestGenesisState_Validate(t *testing.T) {
 		{
 			desc: "valid genesis state",
 			genState: &types.GenesisState{
-				PortId: types.PortID,
-			},
+				PortId:        types.PortID,
+				StoredFileMap: []types.StoredFile{{OriginalHash: "0"}, {OriginalHash: "1"}}},
 			valid: true,
+		}, {
+			desc: "duplicated storedFile",
+			genState: &types.GenesisState{
+				StoredFileMap: []types.StoredFile{
+					{
+						OriginalHash: "0",
+					},
+					{
+						OriginalHash: "0",
+					},
+				},
+			},
+			valid: false,
 		},
 	}
 	for _, tc := range tests {

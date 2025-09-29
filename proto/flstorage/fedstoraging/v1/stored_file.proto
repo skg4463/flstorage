@@ -1,0 +1,11 @@
+syntax = "proto3";
+package flstorage.fedstoraging.v1;
+
+option go_package = "flstorage/x/fedstoraging/types";
+
+// StoredFile defines the StoredFile message.
+message StoredFile {
+  string original_hash = 1;
+  string tag = 2;
+  repeated string shard_hashes = 3;
+}

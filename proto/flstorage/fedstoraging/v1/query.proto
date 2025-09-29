@@ -1,9 +1,11 @@
 syntax = "proto3";
+
 package flstorage.fedstoraging.v1;
 
 import "amino/amino.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "flstorage/fedstoraging/v1/params.proto";
+import "flstorage/fedstoraging/v1/stored_file.proto";
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 
@@ -14,6 +16,16 @@ service Query {
   // Parameters queries the parameters of the module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/flstorage/fedstoraging/v1/params";
+  }
+
+  // ListStoredFile Queries a list of StoredFile items.
+  rpc GetStoredFile(QueryGetStoredFileRequest) returns (QueryGetStoredFileResponse) {
+    option (google.api.http).get = "/flstorage/fedstoraging/v1/stored_file/{original_hash}";
+  }
+
+  // ListStoredFile defines the ListStoredFile RPC.
+  rpc ListStoredFile(QueryAllStoredFileRequest) returns (QueryAllStoredFileResponse) {
+    option (google.api.http).get = "/flstorage/fedstoraging/v1/stored_file";
   }
 }
 
@@ -27,4 +39,25 @@ message QueryParamsResponse {
     (gogoproto.nullable) = false,
     (amino.dont_omitempty) = true
   ];
+}
+
+// QueryGetStoredFileRequest defines the QueryGetStoredFileRequest message.
+message QueryGetStoredFileRequest {
+  string original_hash = 1;
+}
+
+// QueryGetStoredFileResponse defines the QueryGetStoredFileResponse message.
+message QueryGetStoredFileResponse {
+  StoredFile stored_file = 1 [(gogoproto.nullable) = false];
+}
+
+// QueryAllStoredFileRequest defines the QueryAllStoredFileRequest message.
+message QueryAllStoredFileRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryAllStoredFileResponse defines the QueryAllStoredFileResponse message.
+message QueryAllStoredFileResponse {
+  repeated StoredFile stored_file = 1 [(gogoproto.nullable) = false];
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
