@@ -108,13 +108,15 @@ func (app *App) registerIBCModules(appOpts servertypes.AppOptions) error {
 		transferStackV2    ibcapi.IBCModule    = ibctransferv2.NewIBCModule(app.TransferKeeper)
 		icaControllerStack porttypes.IBCModule = icacontroller.NewIBCMiddleware(app.ICAControllerKeeper)
 		icaHostStack       porttypes.IBCModule = icahost.NewIBCModule(app.ICAHostKeeper)
+		fedstoragingStack   porttypes.IBCModule = fedstoragingmodule.NewIBCModule(app.appCodec, app.FedstoragingKeeper)
 	)
 
 	// create IBC v1 router, add transfer route, then set it on the keeper
 	ibcRouter := porttypes.NewRouter().
 		AddRoute(ibctransfertypes.ModuleName, transferStack).
 		AddRoute(icacontrollertypes.SubModuleName, icaControllerStack).
-		AddRoute(icahosttypes.SubModuleName, icaHostStack)
+		AddRoute(icahosttypes.SubModuleName, icaHostStack).
+		AddRoute(fedstoragingtypes.ModuleName, fedstoragingStack)
 
 	// create IBC v2 router, add transfer route, then set it on the keeper
 	ibcv2Router := ibcapi.NewRouter().
