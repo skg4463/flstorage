@@ -3,6 +3,7 @@ package app
 import (
 	fedstoragingmodule "flstorage/x/fedstoraging/module"
 	fedstoragingmoduletypes "flstorage/x/fedstoraging/types"
+	
 
 	"cosmossdk.io/core/appmodule"
 	storetypes "cosmossdk.io/store/types"
@@ -116,16 +117,15 @@ func (app *App) registerIBCModules(appOpts servertypes.AppOptions) error {
 		AddRoute(ibctransfertypes.ModuleName, transferStack).
 		AddRoute(icacontrollertypes.SubModuleName, icaControllerStack).
 		AddRoute(icahosttypes.SubModuleName, icaHostStack).
-		AddRoute(fedstoragingtypes.ModuleName, fedstoragingStack)
+		AddRoute(fedstoragingmoduletypes.ModuleName, fedstoragingStack)
 
 	// create IBC v2 router, add transfer route, then set it on the keeper
 	ibcv2Router := ibcapi.NewRouter().
 		AddRoute(ibctransfertypes.PortID, transferStackV2)
 
-	fedstoragingIBCModule := fedstoragingmodule.NewIBCModule(app.appCodec, app.FedstoragingKeeper)
-	ibcRouter.AddRoute(fedstoragingmoduletypes.ModuleName, fedstoragingIBCModule)
+	//fedstoragingIBCModule := fedstoragingmodule.NewIBCModule(app.appCodec, app.FedstoragingKeeper)
+	//ibcRouter.AddRoute(fedstoragingmoduletypes.ModuleName, fedstoragingIBCModule)
 	// this line is used by starport scaffolding # ibc/app/module
-
 	app.IBCKeeper.SetRouter(ibcRouter)
 	app.IBCKeeper.SetRouterV2(ibcv2Router)
 

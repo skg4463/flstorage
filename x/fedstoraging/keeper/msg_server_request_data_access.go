@@ -9,7 +9,8 @@ import (
 )
 
 func (k msgServer) RequestDataAccess(goCtx context.Context, msg *types.MsgRequestDataAccess) (*types.MsgRequestDataAccessResponse, error) {
-	ctx := sdk.UnwrapSDKContext(goCtx)
+    ctx := sdk.UnwrapSDKContext(goCtx)
+    _ = ctx // 사용하지 않는 변수 명시적 처리
 
     // TODO: 여기에 IBC 쿼리(ICQ)를 보내는 로직이 구현되어야 함.
     // 1. msg.OriginalHash로 StoredFile을 조회하여 tag를 얻음.
@@ -26,5 +27,5 @@ func (k msgServer) RequestDataAccess(goCtx context.Context, msg *types.MsgReques
     // ICQ는 비동기적으로 처리되므로, 이 트랜잭션은 요청을 보냈다는 사실만 기록하고 즉시 성공 처리.
     // 실제 권한 부여는 메인체인으로부터 응답 패킷이 왔을 때 IBC 콜백 함수(module_ibc.go의 OnAcknowledgementPacket)에서 처리됨.
 
-	return &types.MsgRequestDataAccessResponse{}, nil
+    return &types.MsgRequestDataAccessResponse{}, nil
 }

@@ -8,4 +8,5 @@ message StoredFile {
   string original_hash = 1;
   string tag = 2;
   repeated string shard_hashes = 3;
+  string creator = 4;
 }
