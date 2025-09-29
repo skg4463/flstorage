@@ -10,7 +10,7 @@ import (
 func DefaultGenesis() *GenesisState {
 	return &GenesisState{
 		Params: DefaultParams(),
-		PortId: PortID, StoredFileMap: []StoredFile{}}
+		PortId: PortID, StoredFileMap: []StoredFile{}, DataAccessPermissionMap: []DataAccessPermission{}}
 }
 
 // Validate performs basic genesis state validation returning an error upon any
@@ -27,6 +27,15 @@ func (gs GenesisState) Validate() error {
 			return fmt.Errorf("duplicated index for storedFile")
 		}
 		storedFileIndexMap[index] = struct{}{}
+	}
+	dataAccessPermissionIndexMap := make(map[string]struct{})
+
+	for _, elem := range gs.DataAccessPermissionMap {
+		index := fmt.Sprint(elem.PermissionId)
+		if _, ok := dataAccessPermissionIndexMap[index]; ok {
+			return fmt.Errorf("duplicated index for dataAccessPermission")
+		}
+		dataAccessPermissionIndexMap[index] = struct{}{}
 	}
 
 	return gs.Params.Validate()

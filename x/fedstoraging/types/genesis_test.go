@@ -23,7 +23,7 @@ func TestGenesisState_Validate(t *testing.T) {
 			desc: "valid genesis state",
 			genState: &types.GenesisState{
 				PortId:        types.PortID,
-				StoredFileMap: []types.StoredFile{{OriginalHash: "0"}, {OriginalHash: "1"}}},
+				StoredFileMap: []types.StoredFile{{OriginalHash: "0"}, {OriginalHash: "1"}}, DataAccessPermissionMap: []types.DataAccessPermission{{PermissionId: "0"}, {PermissionId: "1"}}},
 			valid: true,
 		}, {
 			desc: "duplicated storedFile",
@@ -34,6 +34,19 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 					{
 						OriginalHash: "0",
+					},
+				},
+				DataAccessPermissionMap: []types.DataAccessPermission{{PermissionId: "0"}, {PermissionId: "1"}}},
+			valid: false,
+		}, {
+			desc: "duplicated dataAccessPermission",
+			genState: &types.GenesisState{
+				DataAccessPermissionMap: []types.DataAccessPermission{
+					{
+						PermissionId: "0",
+					},
+					{
+						PermissionId: "0",
 					},
 				},
 			},

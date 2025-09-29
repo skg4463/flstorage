@@ -19,6 +19,11 @@ func (k Keeper) InitGenesis(ctx context.Context, genState types.GenesisState) er
 			return err
 		}
 	}
+	for _, elem := range genState.DataAccessPermissionMap {
+		if err := k.DataAccessPermission.Set(ctx, elem.PermissionId, elem); err != nil {
+			return err
+		}
+	}
 
 	return k.Params.Set(ctx, genState.Params)
 }
@@ -38,6 +43,12 @@ func (k Keeper) ExportGenesis(ctx context.Context) (*types.GenesisState, error) 
 	}
 	if err := k.StoredFile.Walk(ctx, nil, func(_ string, val types.StoredFile) (stop bool, err error) {
 		genesis.StoredFileMap = append(genesis.StoredFileMap, val)
+		return false, nil
+	}); err != nil {
+		return nil, err
+	}
+	if err := k.DataAccessPermission.Walk(ctx, nil, func(_ string, val types.DataAccessPermission) (stop bool, err error) {
+		genesis.DataAccessPermissionMap = append(genesis.DataAccessPermissionMap, val)
 		return false, nil
 	}); err != nil {
 		return nil, err

@@ -3,6 +3,7 @@ syntax = "proto3";
 package flstorage.fedstoraging.v1;
 
 import "amino/amino.proto";
+import "flstorage/fedstoraging/v1/data_access_permission.proto";
 import "flstorage/fedstoraging/v1/params.proto";
 import "flstorage/fedstoraging/v1/stored_file.proto";
 import "gogoproto/gogo.proto";
@@ -18,4 +19,5 @@ message GenesisState {
   ];
   string port_id = 2;
   repeated StoredFile stored_file_map = 3 [(gogoproto.nullable) = false];
+  repeated DataAccessPermission data_access_permission_map = 4 [(gogoproto.nullable) = false];
 }

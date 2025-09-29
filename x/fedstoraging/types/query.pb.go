@@ -303,6 +303,194 @@ func (m *QueryAllStoredFileResponse) GetPagination() *query.PageResponse {
 	return nil
 }
 
+// QueryGetDataAccessPermissionRequest defines the QueryGetDataAccessPermissionRequest message.
+type QueryGetDataAccessPermissionRequest struct {
+	PermissionId string `protobuf:"bytes,1,opt,name=permission_id,json=permissionId,proto3" json:"permission_id,omitempty"`
+}
+
+func (m *QueryGetDataAccessPermissionRequest) Reset()         { *m = QueryGetDataAccessPermissionRequest{} }
+func (m *QueryGetDataAccessPermissionRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetDataAccessPermissionRequest) ProtoMessage()    {}
+func (*QueryGetDataAccessPermissionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dc3ef5120b9cbe82, []int{6}
+}
+func (m *QueryGetDataAccessPermissionRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetDataAccessPermissionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetDataAccessPermissionRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetDataAccessPermissionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetDataAccessPermissionRequest.Merge(m, src)
+}
+func (m *QueryGetDataAccessPermissionRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetDataAccessPermissionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetDataAccessPermissionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetDataAccessPermissionRequest proto.InternalMessageInfo
+
+func (m *QueryGetDataAccessPermissionRequest) GetPermissionId() string {
+	if m != nil {
+		return m.PermissionId
+	}
+	return ""
+}
+
+// QueryGetDataAccessPermissionResponse defines the QueryGetDataAccessPermissionResponse message.
+type QueryGetDataAccessPermissionResponse struct {
+	DataAccessPermission DataAccessPermission `protobuf:"bytes,1,opt,name=data_access_permission,json=dataAccessPermission,proto3" json:"data_access_permission"`
+}
+
+func (m *QueryGetDataAccessPermissionResponse) Reset()         { *m = QueryGetDataAccessPermissionResponse{} }
+func (m *QueryGetDataAccessPermissionResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetDataAccessPermissionResponse) ProtoMessage()    {}
+func (*QueryGetDataAccessPermissionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dc3ef5120b9cbe82, []int{7}
+}
+func (m *QueryGetDataAccessPermissionResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetDataAccessPermissionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetDataAccessPermissionResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetDataAccessPermissionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetDataAccessPermissionResponse.Merge(m, src)
+}
+func (m *QueryGetDataAccessPermissionResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetDataAccessPermissionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetDataAccessPermissionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetDataAccessPermissionResponse proto.InternalMessageInfo
+
+func (m *QueryGetDataAccessPermissionResponse) GetDataAccessPermission() DataAccessPermission {
+	if m != nil {
+		return m.DataAccessPermission
+	}
+	return DataAccessPermission{}
+}
+
+// QueryAllDataAccessPermissionRequest defines the QueryAllDataAccessPermissionRequest message.
+type QueryAllDataAccessPermissionRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllDataAccessPermissionRequest) Reset()         { *m = QueryAllDataAccessPermissionRequest{} }
+func (m *QueryAllDataAccessPermissionRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllDataAccessPermissionRequest) ProtoMessage()    {}
+func (*QueryAllDataAccessPermissionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dc3ef5120b9cbe82, []int{8}
+}
+func (m *QueryAllDataAccessPermissionRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllDataAccessPermissionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllDataAccessPermissionRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllDataAccessPermissionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllDataAccessPermissionRequest.Merge(m, src)
+}
+func (m *QueryAllDataAccessPermissionRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllDataAccessPermissionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllDataAccessPermissionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllDataAccessPermissionRequest proto.InternalMessageInfo
+
+func (m *QueryAllDataAccessPermissionRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+// QueryAllDataAccessPermissionResponse defines the QueryAllDataAccessPermissionResponse message.
+type QueryAllDataAccessPermissionResponse struct {
+	DataAccessPermission []DataAccessPermission `protobuf:"bytes,1,rep,name=data_access_permission,json=dataAccessPermission,proto3" json:"data_access_permission"`
+	Pagination           *query.PageResponse    `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllDataAccessPermissionResponse) Reset()         { *m = QueryAllDataAccessPermissionResponse{} }
+func (m *QueryAllDataAccessPermissionResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllDataAccessPermissionResponse) ProtoMessage()    {}
+func (*QueryAllDataAccessPermissionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dc3ef5120b9cbe82, []int{9}
+}
+func (m *QueryAllDataAccessPermissionResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllDataAccessPermissionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllDataAccessPermissionResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllDataAccessPermissionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllDataAccessPermissionResponse.Merge(m, src)
+}
+func (m *QueryAllDataAccessPermissionResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllDataAccessPermissionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllDataAccessPermissionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllDataAccessPermissionResponse proto.InternalMessageInfo
+
+func (m *QueryAllDataAccessPermissionResponse) GetDataAccessPermission() []DataAccessPermission {
+	if m != nil {
+		return m.DataAccessPermission
+	}
+	return nil
+}
+
+func (m *QueryAllDataAccessPermissionResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "flstorage.fedstoraging.v1.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "flstorage.fedstoraging.v1.QueryParamsResponse")
@@ -310,6 +498,10 @@ func init() {
 	proto.RegisterType((*QueryGetStoredFileResponse)(nil), "flstorage.fedstoraging.v1.QueryGetStoredFileResponse")
 	proto.RegisterType((*QueryAllStoredFileRequest)(nil), "flstorage.fedstoraging.v1.QueryAllStoredFileRequest")
 	proto.RegisterType((*QueryAllStoredFileResponse)(nil), "flstorage.fedstoraging.v1.QueryAllStoredFileResponse")
+	proto.RegisterType((*QueryGetDataAccessPermissionRequest)(nil), "flstorage.fedstoraging.v1.QueryGetDataAccessPermissionRequest")
+	proto.RegisterType((*QueryGetDataAccessPermissionResponse)(nil), "flstorage.fedstoraging.v1.QueryGetDataAccessPermissionResponse")
+	proto.RegisterType((*QueryAllDataAccessPermissionRequest)(nil), "flstorage.fedstoraging.v1.QueryAllDataAccessPermissionRequest")
+	proto.RegisterType((*QueryAllDataAccessPermissionResponse)(nil), "flstorage.fedstoraging.v1.QueryAllDataAccessPermissionResponse")
 }
 
 func init() {
@@ -317,41 +509,51 @@ func init() {
 }
 
 var fileDescriptor_dc3ef5120b9cbe82 = []byte{
-	// 533 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x94, 0x4f, 0x6b, 0x13, 0x41,
-	0x18, 0xc6, 0x33, 0xb5, 0x06, 0x3a, 0xb5, 0x82, 0x63, 0x0f, 0x76, 0x91, 0xd5, 0x4e, 0x69, 0xac,
-	0x15, 0x67, 0x48, 0xfd, 0x43, 0x4f, 0xa2, 0x41, 0x5a, 0x0f, 0x3d, 0xd4, 0xf5, 0xa6, 0x87, 0x32,
-	0x69, 0x27, 0x9b, 0x91, 0xcd, 0xce, 0x76, 0x67, 0x1a, 0x2c, 0xe2, 0xc5, 0xab, 0x17, 0xd1, 0x2f,
-	0xe1, 0x45, 0x10, 0xbc, 0xfa, 0x01, 0x7a, 0x2c, 0x78, 0xf1, 0x24, 0x92, 0x08, 0x7e, 0x0d, 0xd9,
-	0x99, 0x49, 0x93, 0xb5, 0x49, 0x37, 0xc1, 0x4b, 0x98, 0xbc, 0xbc, 0xef, 0xf3, 0xfc, 0xde, 0xdd,
-	0x67, 0x16, 0x2e, 0x37, 0x22, 0xa5, 0x65, 0xca, 0x42, 0x4e, 0x1b, 0x7c, 0xcf, 0x1e, 0x45, 0x1c,
-	0xd2, 0x76, 0x95, 0xee, 0x1f, 0xf0, 0xf4, 0x90, 0x24, 0xa9, 0xd4, 0x12, 0x2d, 0x9c, 0xb4, 0x91,
-	0xc1, 0x36, 0xd2, 0xae, 0x7a, 0x97, 0x58, 0x4b, 0xc4, 0x92, 0x9a, 0x5f, 0xdb, 0xed, 0xad, 0xee,
-	0x4a, 0xd5, 0x92, 0x8a, 0xd6, 0x99, 0xe2, 0x56, 0x86, 0xb6, 0xab, 0x75, 0xae, 0x59, 0x95, 0x26,
-	0xd9, 0x1c, 0xd3, 0x42, 0xc6, 0xae, 0xb7, 0x32, 0x1a, 0x20, 0x61, 0x29, 0x6b, 0x29, 0xd7, 0x37,
-	0x1f, 0xca, 0x50, 0x9a, 0x23, 0xcd, 0x4e, 0xae, 0x7a, 0x35, 0x94, 0x32, 0x8c, 0x38, 0x65, 0x89,
-	0xa0, 0x2c, 0x8e, 0xa5, 0x36, 0xd2, 0xbd, 0x99, 0x5b, 0xa3, 0xb5, 0xb3, 0x3f, 0x7c, 0x6f, 0xa7,
-	0x21, 0x22, 0x6e, 0x9b, 0xf1, 0x3c, 0x44, 0x4f, 0x33, 0xd4, 0x6d, 0xe3, 0x1a, 0xf0, 0xfd, 0x03,
-	0xae, 0x34, 0x7e, 0x01, 0x2f, 0xe7, 0xaa, 0x2a, 0x91, 0xb1, 0xe2, 0xe8, 0x31, 0x2c, 0x5b, 0xba,
-	0x2b, 0xe0, 0x3a, 0x58, 0x99, 0x5d, 0x5b, 0x24, 0x23, 0x1f, 0x10, 0xb1, 0xa3, 0xb5, 0x99, 0xa3,
-	0x9f, 0xd7, 0x4a, 0x9f, 0xfe, 0x7c, 0x59, 0x05, 0x81, 0x9b, 0xc5, 0x0f, 0xe1, 0x82, 0x11, 0xdf,
-	0xe4, 0xfa, 0x99, 0xe1, 0xd9, 0x10, 0x11, 0x77, 0xce, 0x68, 0x09, 0xce, 0xc9, 0x54, 0x64, 0x4f,
-	0x2b, 0xda, 0x69, 0x32, 0xd5, 0x34, 0x4e, 0x33, 0xc1, 0x85, 0x5e, 0xf1, 0x09, 0x53, 0x4d, 0xfc,
-	0x12, 0x7a, 0xc3, 0x14, 0x1c, 0xe5, 0x16, 0x9c, 0x1d, 0xd8, 0xd3, 0xa1, 0x2e, 0x9f, 0x81, 0xda,
-	0xd7, 0xa8, 0x4d, 0x67, 0xb8, 0x01, 0x54, 0x27, 0x15, 0xbc, 0xeb, 0x68, 0x1f, 0x45, 0xd1, 0x69,
-	0xda, 0x0d, 0x08, 0xfb, 0xaf, 0xd6, 0x39, 0x55, 0x88, 0xcd, 0x01, 0xc9, 0x72, 0x40, 0x6c, 0x9c,
-	0x5c, 0x0e, 0xc8, 0x36, 0x0b, 0x7b, 0xb3, 0xc1, 0xc0, 0x24, 0xfe, 0x0a, 0xdc, 0x46, 0xff, 0xb8,
-	0x8c, 0xda, 0xe8, 0xdc, 0x7f, 0x6c, 0x84, 0x36, 0x73, 0xd0, 0x53, 0x06, 0xfa, 0x46, 0x21, 0xb4,
-	0x45, 0x19, 0xa4, 0x5e, 0x7b, 0x37, 0x0d, 0xcf, 0x1b, 0x6a, 0xf4, 0x01, 0xc0, 0xb2, 0x7d, 0xe1,
-	0xe8, 0xf6, 0x19, 0x58, 0xa7, 0x93, 0xe6, 0x91, 0x71, 0xdb, 0xad, 0x3f, 0xbe, 0xf9, 0xf6, 0xfb,
-	0xef, 0x8f, 0x53, 0x4b, 0x68, 0x91, 0x16, 0xdd, 0x20, 0xf4, 0x0d, 0xc0, 0xb9, 0x5c, 0x42, 0xd0,
-	0xdd, 0x22, 0xb3, 0x61, 0x91, 0xf4, 0xee, 0x4d, 0x38, 0xe5, 0x48, 0x1f, 0x18, 0xd2, 0x75, 0x74,
-	0x9f, 0x8e, 0x75, 0x1f, 0xe9, 0xeb, 0x5c, 0xee, 0xdf, 0xa0, 0xcf, 0x00, 0x5e, 0xdc, 0x12, 0x6a,
-	0x22, 0xfe, 0x61, 0x21, 0x2d, 0xe6, 0x1f, 0x1a, 0x3a, 0x4c, 0x0c, 0xff, 0x0a, 0xaa, 0x8c, 0xc7,
-	0x5f, 0x5b, 0x3f, 0xea, 0xf8, 0xe0, 0xb8, 0xe3, 0x83, 0x5f, 0x1d, 0x1f, 0xbc, 0xef, 0xfa, 0xa5,
-	0xe3, 0xae, 0x5f, 0xfa, 0xd1, 0xf5, 0x4b, 0xcf, 0xfd, 0xbe, 0xc0, 0xab, 0xbc, 0x84, 0x3e, 0x4c,
-	0xb8, 0xaa, 0x97, 0xcd, 0xa7, 0xe8, 0xce, 0xdf, 0x00, 0x00, 0x00, 0xff, 0xff, 0xef, 0x6e, 0xcd,
-	0x21, 0x96, 0x05, 0x00, 0x00,
+	// 701 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x56, 0x4f, 0x4f, 0xd4, 0x4e,
+	0x18, 0xde, 0x81, 0xdf, 0x0f, 0xc3, 0x20, 0x26, 0x8e, 0x44, 0xa1, 0x31, 0x55, 0x8a, 0x20, 0x62,
+	0xec, 0x64, 0x41, 0x09, 0x5e, 0xd0, 0x45, 0x02, 0x62, 0x38, 0xe0, 0x7a, 0xd3, 0xc3, 0x66, 0xd8,
+	0x0e, 0xa5, 0xda, 0xed, 0x94, 0x4e, 0x21, 0x12, 0xc2, 0xc5, 0x4f, 0x60, 0xe4, 0x4b, 0x78, 0x31,
+	0x31, 0xf1, 0xea, 0x07, 0xe0, 0xe0, 0x81, 0xc4, 0xc4, 0x78, 0x30, 0xc6, 0xb0, 0x1a, 0xbf, 0x86,
+	0xe9, 0x74, 0xba, 0xbb, 0x95, 0xfe, 0xd9, 0xc5, 0xbd, 0x6c, 0x66, 0xdf, 0x7d, 0xff, 0x3c, 0xcf,
+	0x3b, 0x4f, 0x9f, 0x2e, 0x1c, 0xdf, 0xb0, 0xb9, 0xcf, 0x3c, 0x62, 0x52, 0xbc, 0x41, 0x8d, 0xf0,
+	0x68, 0x39, 0x26, 0xde, 0x29, 0xe2, 0xad, 0x6d, 0xea, 0xed, 0xea, 0xae, 0xc7, 0x7c, 0x86, 0x46,
+	0x1a, 0x69, 0x7a, 0x6b, 0x9a, 0xbe, 0x53, 0x54, 0xce, 0x93, 0x9a, 0xe5, 0x30, 0x2c, 0x3e, 0xc3,
+	0x6c, 0x65, 0xaa, 0xca, 0x78, 0x8d, 0x71, 0xbc, 0x4e, 0x38, 0x0d, 0xdb, 0xe0, 0x9d, 0xe2, 0x3a,
+	0xf5, 0x49, 0x11, 0xbb, 0x41, 0x1d, 0xf1, 0x2d, 0xe6, 0xc8, 0xdc, 0x89, 0x74, 0x00, 0x2e, 0xf1,
+	0x48, 0x8d, 0xcb, 0xbc, 0x9b, 0xe9, 0x79, 0xc1, 0x17, 0x6a, 0x54, 0x36, 0x2c, 0x9b, 0xca, 0xe4,
+	0x21, 0x93, 0x99, 0x4c, 0x1c, 0x71, 0x70, 0x92, 0xd1, 0xcb, 0x26, 0x63, 0xa6, 0x4d, 0x31, 0x71,
+	0x2d, 0x4c, 0x1c, 0x87, 0xf9, 0x02, 0x47, 0x34, 0x60, 0x36, 0x7d, 0x80, 0x41, 0x7c, 0x52, 0x21,
+	0xd5, 0x2a, 0xe5, 0xbc, 0xe2, 0x52, 0xaf, 0x66, 0x71, 0xde, 0x20, 0xa0, 0x0d, 0x41, 0xf4, 0x38,
+	0xa0, 0xb8, 0x26, 0xd0, 0x96, 0xe9, 0xd6, 0x36, 0xe5, 0xbe, 0xf6, 0x0c, 0x5e, 0x88, 0x45, 0xb9,
+	0xcb, 0x1c, 0x4e, 0xd1, 0x22, 0xec, 0x0b, 0x59, 0x0d, 0x83, 0xab, 0x60, 0x72, 0x60, 0x7a, 0x54,
+	0x4f, 0x5d, 0xac, 0x1e, 0x96, 0x2e, 0xf4, 0x1f, 0x7e, 0xbf, 0x52, 0x78, 0xfb, 0xfb, 0xfd, 0x14,
+	0x28, 0xcb, 0x5a, 0xed, 0x3e, 0x1c, 0x11, 0xcd, 0x97, 0xa9, 0xff, 0x44, 0x70, 0x5f, 0xb2, 0x6c,
+	0x2a, 0x27, 0xa3, 0x31, 0x38, 0xc8, 0x3c, 0x2b, 0xd8, 0xb2, 0x5d, 0xd9, 0x24, 0x7c, 0x53, 0x4c,
+	0xea, 0x2f, 0x9f, 0x8d, 0x82, 0x0f, 0x09, 0xdf, 0xd4, 0x9e, 0x43, 0x25, 0xa9, 0x83, 0x44, 0xb9,
+	0x0a, 0x07, 0x5a, 0x76, 0x2a, 0xa1, 0x8e, 0x67, 0x40, 0x6d, 0xf6, 0x58, 0xf8, 0x2f, 0x80, 0x5b,
+	0x86, 0xbc, 0x11, 0xd1, 0xaa, 0x12, 0x6d, 0xc9, 0xb6, 0x4f, 0xa2, 0x5d, 0x82, 0xb0, 0x29, 0x09,
+	0x39, 0x69, 0x42, 0x0f, 0xf5, 0xa3, 0x07, 0xfa, 0xd1, 0x43, 0x19, 0x4a, 0xfd, 0xe8, 0x6b, 0xc4,
+	0x8c, 0x6a, 0xcb, 0x2d, 0x95, 0xda, 0x07, 0x20, 0x19, 0xfd, 0x35, 0x25, 0x8d, 0x51, 0xef, 0x3f,
+	0x30, 0x42, 0xcb, 0x31, 0xd0, 0x3d, 0x02, 0xf4, 0xf5, 0x5c, 0xd0, 0x21, 0x94, 0x18, 0xea, 0x47,
+	0x70, 0x2c, 0xba, 0x86, 0x45, 0xe2, 0x93, 0x92, 0x90, 0xd8, 0x5a, 0x43, 0x61, 0x2d, 0x57, 0xda,
+	0x94, 0x5d, 0xc5, 0x32, 0xa2, 0x2b, 0x6d, 0x06, 0x57, 0x0c, 0xed, 0x00, 0xc0, 0x6b, 0xd9, 0xcd,
+	0xe4, 0x2e, 0x5e, 0xc0, 0x8b, 0xc9, 0x82, 0x96, 0xeb, 0xc7, 0x19, 0x6b, 0x49, 0x6a, 0x2c, 0x17,
+	0x34, 0x64, 0x24, 0xfc, 0xa6, 0xd5, 0x24, 0xc3, 0x92, 0x6d, 0x67, 0x31, 0xec, 0x96, 0x0c, 0xbe,
+	0x45, 0x4b, 0x48, 0x9d, 0xd7, 0xc6, 0x12, 0x7a, 0xbb, 0xbc, 0x84, 0xae, 0xe9, 0x65, 0xfa, 0xd3,
+	0x19, 0xf8, 0xbf, 0xa0, 0x87, 0xde, 0x00, 0xd8, 0x17, 0x1a, 0x04, 0xba, 0x95, 0x01, 0xf5, 0xa4,
+	0x33, 0x29, 0x7a, 0xbb, 0xe9, 0xe1, 0x7c, 0xed, 0xc6, 0xab, 0xcf, 0x3f, 0x0f, 0x7a, 0xc6, 0xd0,
+	0x28, 0xce, 0x73, 0x6a, 0xf4, 0x11, 0xc0, 0xc1, 0x98, 0xa3, 0xa0, 0xdb, 0x79, 0xc3, 0x92, 0x2c,
+	0x4c, 0xb9, 0xd3, 0x61, 0x95, 0x44, 0x3a, 0x2f, 0x90, 0xce, 0xa1, 0x59, 0xdc, 0xd6, 0xbb, 0x02,
+	0xef, 0xc5, 0x7c, 0x72, 0x1f, 0xbd, 0x03, 0xf0, 0xdc, 0xaa, 0xc5, 0x3b, 0xc2, 0x9f, 0x64, 0x6a,
+	0xf9, 0xf8, 0x13, 0x4d, 0x4a, 0xd3, 0x05, 0xfe, 0x49, 0x34, 0xd1, 0x1e, 0x7e, 0xf4, 0x0b, 0xc0,
+	0x4b, 0x29, 0x0f, 0x3b, 0x9a, 0x6f, 0x63, 0x85, 0x19, 0x0f, 0xa4, 0x72, 0xef, 0xd4, 0xf5, 0x92,
+	0xcc, 0x8a, 0x20, 0xf3, 0x00, 0x95, 0x70, 0xa7, 0xef, 0x55, 0xbc, 0x17, 0x33, 0xbb, 0x7d, 0xf4,
+	0x05, 0xc0, 0xe1, 0xe0, 0x5e, 0x4e, 0x47, 0x34, 0xdb, 0x79, 0xf2, 0x89, 0xe6, 0x38, 0x89, 0x76,
+	0x57, 0x10, 0x9d, 0x41, 0xc5, 0x8e, 0x89, 0x2e, 0xcc, 0x1d, 0x1e, 0xab, 0xe0, 0xe8, 0x58, 0x05,
+	0x3f, 0x8e, 0x55, 0xf0, 0xba, 0xae, 0x16, 0x8e, 0xea, 0x6a, 0xe1, 0x6b, 0x5d, 0x2d, 0x3c, 0x55,
+	0x9b, 0xbd, 0x5e, 0xc6, 0xbb, 0xf9, 0xbb, 0x2e, 0xe5, 0xeb, 0x7d, 0xe2, 0xbf, 0xc7, 0xcc, 0x9f,
+	0x00, 0x00, 0x00, 0xff, 0xff, 0x70, 0xfd, 0x32, 0x43, 0xbf, 0x09, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -372,6 +574,10 @@ type QueryClient interface {
 	GetStoredFile(ctx context.Context, in *QueryGetStoredFileRequest, opts ...grpc.CallOption) (*QueryGetStoredFileResponse, error)
 	// ListStoredFile defines the ListStoredFile RPC.
 	ListStoredFile(ctx context.Context, in *QueryAllStoredFileRequest, opts ...grpc.CallOption) (*QueryAllStoredFileResponse, error)
+	// ListDataAccessPermission Queries a list of DataAccessPermission items.
+	GetDataAccessPermission(ctx context.Context, in *QueryGetDataAccessPermissionRequest, opts ...grpc.CallOption) (*QueryGetDataAccessPermissionResponse, error)
+	// ListDataAccessPermission defines the ListDataAccessPermission RPC.
+	ListDataAccessPermission(ctx context.Context, in *QueryAllDataAccessPermissionRequest, opts ...grpc.CallOption) (*QueryAllDataAccessPermissionResponse, error)
 }
 
 type queryClient struct {
@@ -409,6 +615,24 @@ func (c *queryClient) ListStoredFile(ctx context.Context, in *QueryAllStoredFile
 	return out, nil
 }
 
+func (c *queryClient) GetDataAccessPermission(ctx context.Context, in *QueryGetDataAccessPermissionRequest, opts ...grpc.CallOption) (*QueryGetDataAccessPermissionResponse, error) {
+	out := new(QueryGetDataAccessPermissionResponse)
+	err := c.cc.Invoke(ctx, "/flstorage.fedstoraging.v1.Query/GetDataAccessPermission", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) ListDataAccessPermission(ctx context.Context, in *QueryAllDataAccessPermissionRequest, opts ...grpc.CallOption) (*QueryAllDataAccessPermissionResponse, error) {
+	out := new(QueryAllDataAccessPermissionResponse)
+	err := c.cc.Invoke(ctx, "/flstorage.fedstoraging.v1.Query/ListDataAccessPermission", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
@@ -417,6 +641,10 @@ type QueryServer interface {
 	GetStoredFile(context.Context, *QueryGetStoredFileRequest) (*QueryGetStoredFileResponse, error)
 	// ListStoredFile defines the ListStoredFile RPC.
 	ListStoredFile(context.Context, *QueryAllStoredFileRequest) (*QueryAllStoredFileResponse, error)
+	// ListDataAccessPermission Queries a list of DataAccessPermission items.
+	GetDataAccessPermission(context.Context, *QueryGetDataAccessPermissionRequest) (*QueryGetDataAccessPermissionResponse, error)
+	// ListDataAccessPermission defines the ListDataAccessPermission RPC.
+	ListDataAccessPermission(context.Context, *QueryAllDataAccessPermissionRequest) (*QueryAllDataAccessPermissionResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -431,6 +659,12 @@ func (*UnimplementedQueryServer) GetStoredFile(ctx context.Context, req *QueryGe
 }
 func (*UnimplementedQueryServer) ListStoredFile(ctx context.Context, req *QueryAllStoredFileRequest) (*QueryAllStoredFileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListStoredFile not implemented")
+}
+func (*UnimplementedQueryServer) GetDataAccessPermission(ctx context.Context, req *QueryGetDataAccessPermissionRequest) (*QueryGetDataAccessPermissionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDataAccessPermission not implemented")
+}
+func (*UnimplementedQueryServer) ListDataAccessPermission(ctx context.Context, req *QueryAllDataAccessPermissionRequest) (*QueryAllDataAccessPermissionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListDataAccessPermission not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -491,6 +725,42 @@ func _Query_ListStoredFile_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetDataAccessPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetDataAccessPermissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetDataAccessPermission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/flstorage.fedstoraging.v1.Query/GetDataAccessPermission",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetDataAccessPermission(ctx, req.(*QueryGetDataAccessPermissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_ListDataAccessPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllDataAccessPermissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).ListDataAccessPermission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/flstorage.fedstoraging.v1.Query/ListDataAccessPermission",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).ListDataAccessPermission(ctx, req.(*QueryAllDataAccessPermissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var Query_serviceDesc = _Query_serviceDesc
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "flstorage.fedstoraging.v1.Query",
@@ -507,6 +777,14 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListStoredFile",
 			Handler:    _Query_ListStoredFile_Handler,
+		},
+		{
+			MethodName: "GetDataAccessPermission",
+			Handler:    _Query_GetDataAccessPermission_Handler,
+		},
+		{
+			MethodName: "ListDataAccessPermission",
+			Handler:    _Query_ListDataAccessPermission_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -716,6 +994,153 @@ func (m *QueryAllStoredFileResponse) MarshalToSizedBuffer(dAtA []byte) (int, err
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetDataAccessPermissionRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetDataAccessPermissionRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetDataAccessPermissionRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.PermissionId) > 0 {
+		i -= len(m.PermissionId)
+		copy(dAtA[i:], m.PermissionId)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.PermissionId)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetDataAccessPermissionResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetDataAccessPermissionResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetDataAccessPermissionResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.DataAccessPermission.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllDataAccessPermissionRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllDataAccessPermissionRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllDataAccessPermissionRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllDataAccessPermissionResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllDataAccessPermissionResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllDataAccessPermissionResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.DataAccessPermission) > 0 {
+		for iNdEx := len(m.DataAccessPermission) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.DataAccessPermission[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -792,6 +1217,62 @@ func (m *QueryAllStoredFileResponse) Size() (n int) {
 	_ = l
 	if len(m.StoredFile) > 0 {
 		for _, e := range m.StoredFile {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetDataAccessPermissionRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.PermissionId)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetDataAccessPermissionResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.DataAccessPermission.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllDataAccessPermissionRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllDataAccessPermissionResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.DataAccessPermission) > 0 {
+		for _, e := range m.DataAccessPermission {
 			l = e.Size()
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -1253,6 +1734,377 @@ func (m *QueryAllStoredFileResponse) Unmarshal(dAtA []byte) error {
 			}
 			m.StoredFile = append(m.StoredFile, StoredFile{})
 			if err := m.StoredFile[len(m.StoredFile)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetDataAccessPermissionRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetDataAccessPermissionRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetDataAccessPermissionRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PermissionId", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.PermissionId = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetDataAccessPermissionResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetDataAccessPermissionResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetDataAccessPermissionResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field DataAccessPermission", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.DataAccessPermission.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllDataAccessPermissionRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllDataAccessPermissionRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllDataAccessPermissionRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllDataAccessPermissionResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllDataAccessPermissionResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllDataAccessPermissionResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field DataAccessPermission", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.DataAccessPermission = append(m.DataAccessPermission, DataAccessPermission{})
+			if err := m.DataAccessPermission[len(m.DataAccessPermission)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

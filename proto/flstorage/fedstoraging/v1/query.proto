@@ -4,6 +4,7 @@ package flstorage.fedstoraging.v1;
 
 import "amino/amino.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
+import "flstorage/fedstoraging/v1/data_access_permission.proto";
 import "flstorage/fedstoraging/v1/params.proto";
 import "flstorage/fedstoraging/v1/stored_file.proto";
 import "gogoproto/gogo.proto";
@@ -26,6 +27,16 @@ service Query {
   // ListStoredFile defines the ListStoredFile RPC.
   rpc ListStoredFile(QueryAllStoredFileRequest) returns (QueryAllStoredFileResponse) {
     option (google.api.http).get = "/flstorage/fedstoraging/v1/stored_file";
+  }
+
+  // ListDataAccessPermission Queries a list of DataAccessPermission items.
+  rpc GetDataAccessPermission(QueryGetDataAccessPermissionRequest) returns (QueryGetDataAccessPermissionResponse) {
+    option (google.api.http).get = "/flstorage/fedstoraging/v1/data_access_permission/{permission_id}";
+  }
+
+  // ListDataAccessPermission defines the ListDataAccessPermission RPC.
+  rpc ListDataAccessPermission(QueryAllDataAccessPermissionRequest) returns (QueryAllDataAccessPermissionResponse) {
+    option (google.api.http).get = "/flstorage/fedstoraging/v1/data_access_permission";
   }
 }
 
@@ -59,5 +70,26 @@ message QueryAllStoredFileRequest {
 // QueryAllStoredFileResponse defines the QueryAllStoredFileResponse message.
 message QueryAllStoredFileResponse {
   repeated StoredFile stored_file = 1 [(gogoproto.nullable) = false];
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// QueryGetDataAccessPermissionRequest defines the QueryGetDataAccessPermissionRequest message.
+message QueryGetDataAccessPermissionRequest {
+  string permission_id = 1;
+}
+
+// QueryGetDataAccessPermissionResponse defines the QueryGetDataAccessPermissionResponse message.
+message QueryGetDataAccessPermissionResponse {
+  DataAccessPermission data_access_permission = 1 [(gogoproto.nullable) = false];
+}
+
+// QueryAllDataAccessPermissionRequest defines the QueryAllDataAccessPermissionRequest message.
+message QueryAllDataAccessPermissionRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+// QueryAllDataAccessPermissionResponse defines the QueryAllDataAccessPermissionResponse message.
+message QueryAllDataAccessPermissionResponse {
+  repeated DataAccessPermission data_access_permission = 1 [(gogoproto.nullable) = false];
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }

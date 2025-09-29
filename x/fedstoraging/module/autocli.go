@@ -29,6 +29,18 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Alias:          []string{"show-stored-file"},
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "original_hash"}},
 				},
+				{
+					RpcMethod: "ListDataAccessPermission",
+					Use:       "list-data-access-permission",
+					Short:     "List all DataAccessPermission",
+				},
+				{
+					RpcMethod:      "GetDataAccessPermission",
+					Use:            "get-data-access-permission [id]",
+					Short:          "Gets a DataAccessPermission",
+					Alias:          []string{"show-data-access-permission"},
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "permission_id"}},
+				},
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},
