@@ -1,0 +1,13 @@
+syntax = "proto3";
+package flstorage.flstorage.v1;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "flstorage/x/flstorage/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "flstorage/x/flstorage/Params";
+  option (gogoproto.equal) = true;
+}
