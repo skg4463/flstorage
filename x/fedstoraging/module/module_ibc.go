@@ -39,9 +39,8 @@ func (im IBCModule) OnChanOpenInit(
 	counterparty channeltypes.Counterparty,
 	version string,
 ) (string, error) {
-	// Allow both fedlearning-1 and fedstoraging-1 versions for compatibility
-	if version != types.Version && version != "fedstoraging-1" {
-		return "", errorsmod.Wrapf(types.ErrInvalidVersion, "got %s, expected %s or fedstoraging-1", version, types.Version)
+	if version != types.Version {
+		return "", errorsmod.Wrapf(types.ErrInvalidVersion, "got %s, expected %s", version, types.Version)
 	}
 
 	return version, nil
@@ -57,8 +56,11 @@ func (im IBCModule) OnChanOpenTry(
 	counterparty channeltypes.Counterparty,
 	counterpartyVersion string,
 ) (string, error) {
-	if counterpartyVersion != types.Version {
-		return "", errorsmod.Wrapf(types.ErrInvalidVersion, "invalid counterparty version: got: %s, expected %s", counterpartyVersion, types.Version)
+	//if counterpartyVersion != types.Version {
+	//	return "", errorsmod.Wrapf(types.ErrInvalidVersion, "invalid counterparty version: got: %s, expected %s", counterpartyVersion, types.Version)
+	//}
+	if counterpartyVersion != "fedlearning-1" {
+		return "", errorsmod.Wrapf(types.ErrInvalidVersion, "invalid counterparty version: got %s, expected %s", counterpartyVersion, "fedlearning-1")
 	}
 
 	return counterpartyVersion, nil
