@@ -1,0 +1,14 @@
+syntax = "proto3";
+package flstorage.fedstoraging.v1;
+
+option go_package = "flstorage/x/fedstoraging/types";
+
+// FedstoragingPacketData defines the Fedstoraging data packet.
+message FedstoragingPacketData {
+  oneof packet {
+    NoData noData = 1;
+  }
+}
+
+// NoData defines an empty data packet.
+message NoData {}

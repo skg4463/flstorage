@@ -1,6 +1,8 @@
 package app
 
 import (
+	_ "flstorage/x/fedstoraging/module"
+	fedstoragingmoduletypes "flstorage/x/fedstoraging/types"
 	_ "flstorage/x/flstorage/module"
 	flstoragemoduletypes "flstorage/x/flstorage/types"
 	"time"
@@ -127,6 +129,7 @@ var (
 						ibcexported.ModuleName,
 						// chain modules
 						flstoragemoduletypes.ModuleName,
+						fedstoragingmoduletypes.ModuleName,
 						// this line is used by starport scaffolding # stargate/app/beginBlockers
 					},
 					EndBlockers: []string{
@@ -136,6 +139,7 @@ var (
 						group.ModuleName,
 						// chain modules
 						flstoragemoduletypes.ModuleName,
+						fedstoragingmoduletypes.ModuleName,
 						// this line is used by starport scaffolding # stargate/app/endBlockers
 					},
 					// The following is mostly only needed when ModuleName != StoreKey name.
@@ -173,6 +177,7 @@ var (
 						icatypes.ModuleName,
 						// chain modules
 						flstoragemoduletypes.ModuleName,
+						fedstoragingmoduletypes.ModuleName,
 						// this line is used by starport scaffolding # stargate/app/initGenesis
 					},
 				}),
@@ -272,6 +277,10 @@ var (
 			{
 				Name:   flstoragemoduletypes.ModuleName,
 				Config: appconfig.WrapAny(&flstoragemoduletypes.Module{}),
+			},
+			{
+				Name:   fedstoragingmoduletypes.ModuleName,
+				Config: appconfig.WrapAny(&fedstoragingmoduletypes.Module{}),
 			},
 			// this line is used by starport scaffolding # stargate/app/moduleConfig
 		},

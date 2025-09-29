@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package flstorage.fedstoraging.v1;
+
+import "amino/amino.proto";
+import "flstorage/fedstoraging/v1/params.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "flstorage/x/fedstoraging/types";
+
+// GenesisState defines the fedstoraging module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+  string port_id = 2;
+}

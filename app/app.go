@@ -46,6 +46,7 @@ import (
 	ibckeeper "github.com/cosmos/ibc-go/v10/modules/core/keeper"
 
 	"flstorage/docs"
+	fedstoragingmodulekeeper "flstorage/x/fedstoraging/keeper"
 	flstoragemodulekeeper "flstorage/x/flstorage/keeper"
 )
 
@@ -98,7 +99,8 @@ type App struct {
 	ICAHostKeeper       icahostkeeper.Keeper
 	TransferKeeper      ibctransferkeeper.Keeper
 
-	FlstorageKeeper flstoragemodulekeeper.Keeper
+	FlstorageKeeper    flstoragemodulekeeper.Keeper
+	FedstoragingKeeper fedstoragingmodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// simulation manager
@@ -179,6 +181,7 @@ func New(
 		&app.CircuitBreakerKeeper,
 		&app.ParamsKeeper,
 		&app.FlstorageKeeper,
+		&app.FedstoragingKeeper,
 	); err != nil {
 		panic(err)
 	}
